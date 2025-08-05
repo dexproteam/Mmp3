@@ -136,7 +136,7 @@
   Now Enjoy The Primeum App<br>
   Do You Haven't Password Click Visit Youtube To Go Our Channel Then Collect Password From YT Thanks.</p>
   <button onclick="nextStep('verify')">VERIFY TO USE APP ✅</button>
-  <button onclick="window.open('https://youtube.com/@allrounder-20k')">VISIT YOUTUBE 📳</button>
+  <button onclick="window.open('https://dexproteam.github.io/MMP/')">GET PASS📳</button>
   <button onclick="window.close()">CLOSE APP❌</button>
 </div>
 
@@ -192,6 +192,65 @@
   { name: "Snapseed Premium", version: "v2.19.0", size: "25MB", link: "https://example.com/snapseed-premium.apk" },
   { name: "Lucky Patcher", version: "v9.5.7", size: "10MB", link: "https://example.com/luckypatcher.apk" },
   { name: "Discord Nitro Mod", version: "v114.0", size: "35MB", link: "https://example.com/discord-nitro-mod.apk" }
+];
+
+
+  window.onload = () => {
+    document.getElementById("popup").style.display = "block";
+  };
+
+  function nextStep(id) {
+    document.getElementById("popup").style.display = "none";
+    document.getElementById(id).style.display = "block";
+  }
+
+  function verifyPassword() {
+    const pass = document.getElementById("password").value;
+    if (pass === correctPassword) {
+      document.getElementById("verify").style.display = "none";
+      document.getElementById("main").style.display = "block";
+      loadApps();
+    } else {
+      window.location.href = "https://youtube.com/@allrounder-20k";
+    }
+  }
+
+  function loadApps() {
+    const appContainer = document.getElementById("apps");
+    appContainer.innerHTML = "";
+    apps.forEach(app => {
+      const div = document.createElement("div");
+      div.className = "app";
+      div.innerHTML = `
+        <div class="app-title">${app.name}</div>
+        <div class="app-version">${app.version}</div>
+        <div class="app-size">App SIZE: ${app.size}</div>
+        <button class="download-btn" onclick="window.open('${app.link}')">Download</button>
+      `;
+      appContainer.appendChild(div);
+    });
+  }
+
+  function searchApp() {
+    const query = document.getElementById("search").value.toLowerCase();
+    const appContainer = document.getElementById("apps");
+    appContainer.innerHTML = "";
+    apps.filter(app => app.name.toLowerCase().includes(query)).forEach(app => {
+      const div = document.createElement("div");
+      div.className = "app";
+      div.innerHTML = `
+        <div class="app-title">${app.name}</div>
+        <div class="app-version">${app.version}</div>
+        <div class="app-size">App SIZE: ${app.size}</div>
+        <button class="download-btn" onclick="window.open('${app.link}')">Download</button>
+      `;
+      appContainer.appendChild(div);
+    });
+  }
+</script>
+
+</body>
+</html>  { name: "Discord Nitro Mod", version: "v114.0", size: "35MB", link: "https://example.com/discord-nitro-mod.apk" }
 ];
 
 
